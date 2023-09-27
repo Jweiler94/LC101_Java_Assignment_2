@@ -32,10 +32,10 @@ public class JobTest {
         assertTrue(testJob.getCoreCompetency() != null);
         assertTrue(testJob.getName() != null);
 
-        assertEquals(testJob.getEmployer(), "Acme");
-        assertEquals(testJob.getLocation(), "Desert");
-        assertEquals(testJob.getPositionType(), "Quality control");
-        assertEquals(testJobs.getCoreCompetency(), "Persistence");
+        assertEquals(testJob.getEmployer().toString(), "ACME");
+        assertEquals(testJob.getLocation().toString(), "Desert");
+        assertEquals(testJob.getPositionType().toString(), "Quality control");
+        assertEquals(testJob.getCoreCompetency().toString(), "Persistence");
 
     }
     //TODO: Create your unit tests here
