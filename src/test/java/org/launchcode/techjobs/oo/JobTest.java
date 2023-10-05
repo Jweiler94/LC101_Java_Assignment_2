@@ -1,12 +1,11 @@
 package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-
-import javax.swing.text.Position;
+import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class JobTest {
@@ -39,6 +38,13 @@ public class JobTest {
         assertEquals(testJob.getPositionType().toString(), "Quality control");
         assertEquals(testJob.getCoreCompetency().toString(), "Persistence");
         assertEquals(testJob.getName(), "Product tester");
+    }
+
+    @Test
+        public void testJobsForEquality () {
+            Job testCase3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Job testCase4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            assertNotEquals(testCase4, testCase3);
     }
     //TODO: Create your unit tests here
 }
