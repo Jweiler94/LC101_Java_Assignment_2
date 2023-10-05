@@ -5,8 +5,7 @@ import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class JobTest {
 
@@ -45,6 +44,41 @@ public class JobTest {
             Job testCase3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             Job testCase4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             assertNotEquals(testCase4, testCase3);
+    }
+
+    @Test
+        public void testToStringStartsAndEndsWithNewLine () {
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(testJob.toString().startsWith(System.lineSeparator()), true);
+        assertEquals(testJob.toString().endsWith(System.lineSeparator()), true);
+    }
+
+    @Test
+        public void testToStringContainsCorrectLabelsAndData () {
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String testCase =
+                System.lineSeparator() +
+                "ID:  " + testJob.getId() + System.lineSeparator() +
+                "Name: Product tester" + System.lineSeparator() +
+                "Employer: ACME" + System.lineSeparator() +
+                "Location: Desert" + System.lineSeparator() +
+                "Position Type: Quality control" + System.lineSeparator() +
+                "Core Competency: Persistence" + System.lineSeparator();
+        assertEquals(testJob.toString(), testCase);
+    }
+
+    @Test
+        public void testToStringHandlesEmptyField () {
+        Job testJob = new Job("Product tester", new Employer(null), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String testCase =
+                System.lineSeparator() +
+                        "ID:  " + testJob.getId() + System.lineSeparator() +
+                        "Name: Product tester" + System.lineSeparator() +
+                        "Employer: Data not available" + System.lineSeparator() +
+                        "Location: Desert" + System.lineSeparator() +
+                        "Position Type: Quality control" + System.lineSeparator() +
+                        "Core Competency: Persistence" + System.lineSeparator();
+        assertEquals(testJob.toString(), testCase);
     }
     //TODO: Create your unit tests here
 }

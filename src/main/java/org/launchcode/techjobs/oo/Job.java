@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import javax.swing.text.Position;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Job {
@@ -33,6 +35,39 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
+
+    public String toString () {
+
+        String newName = "Data not available";
+        Employer newEmployer = new Employer("Data not available");
+        Location newLocation = new Location("Data not available");
+        PositionType newPosition = new PositionType("Data not available");
+        CoreCompetency newCC = new CoreCompetency("Data not available");
+
+        if(this.getName().isEmpty()) {
+            this.setName(newName);
+        } else if (this.getEmployer() == null) {
+            this.setEmployer(newEmployer);
+        } else if (this.getLocation() == null) {
+            this.setLocation(newLocation);
+        } else if (this.getPositionType() == null) {
+            this.setPositionType(newPosition);
+        } else if (this.getCoreCompetency() == null) {
+            this.setCoreCompetency(newCC);
+        }
+
+        String returnString =
+                System.lineSeparator() +
+                        "ID:  " + this.getId() + System.lineSeparator() +
+                        "Name: " + this.getName() + System.lineSeparator() +
+                        "Employer: " + this.getEmployer() + System.lineSeparator() +
+                        "Location: " + this.getLocation() + System.lineSeparator() +
+                        "Position Type: " + this.getPositionType() + System.lineSeparator() +
+                        "Core Competency: " + this.getCoreCompetency() + System.lineSeparator();
+
+           return returnString;
+    }
 
 
     @Override
