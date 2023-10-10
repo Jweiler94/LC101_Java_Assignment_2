@@ -70,7 +70,7 @@ public class Job {
         }
 
         return System.lineSeparator() +
-                "ID:  " + this.getId() + System.lineSeparator() +
+                "ID: " + this.getId() + System.lineSeparator() +
                 "Name: " + stringName + System.lineSeparator() +
                 "Employer: " + stringEmployer + System.lineSeparator() +
                 "Location: " + stringLocation + System.lineSeparator() +

@@ -59,7 +59,7 @@ public class JobTest {
         Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String testCase =
                 System.lineSeparator() +
-                "ID:  " + testJob.getId() + System.lineSeparator() +
+                "ID: " + testJob.getId() + System.lineSeparator() +
                 "Name: Product tester" + System.lineSeparator() +
                 "Employer: ACME" + System.lineSeparator() +
                 "Location: Desert" + System.lineSeparator() +
@@ -70,10 +70,10 @@ public class JobTest {
 
     @Test
         public void testToStringHandlesEmptyField () {
-        Job testJob = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob = new Job("Product tester", new Employer(null), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String testCase =
                 System.lineSeparator() +
-                        "ID:  " + testJob.getId() + System.lineSeparator() +
+                        "ID: " + testJob.getId() + System.lineSeparator() +
                         "Name: Product tester" + System.lineSeparator() +
                         "Employer: Data not available" + System.lineSeparator() +
                         "Location: Desert" + System.lineSeparator() +
