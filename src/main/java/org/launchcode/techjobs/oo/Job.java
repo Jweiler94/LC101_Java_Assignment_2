@@ -1,7 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import javax.swing.text.Position;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class Job {
@@ -37,36 +35,47 @@ public class Job {
     //  match.
 
 
-    public String toString () {
+    public String toString (Job this) {
 
-        String newName = "Data not available";
-        Employer newEmployer = new Employer("Data not available");
-        Location newLocation = new Location("Data not available");
-        PositionType newPosition = new PositionType("Data not available");
-        CoreCompetency newCC = new CoreCompetency("Data not available");
+        String stringName, stringEmployer, stringLocation, stringPosition, stringCore;
 
-        if(this.getName().isEmpty()) {
-            this.setName(newName);
-        } else if (this.getEmployer() == null) {
-            this.setEmployer(newEmployer);
-        } else if (this.getLocation() == null) {
-            this.setLocation(newLocation);
-        } else if (this.getPositionType() == null) {
-            this.setPositionType(newPosition);
-        } else if (this.getCoreCompetency() == null) {
-            this.setCoreCompetency(newCC);
+        if (this.getName() == null) {
+            stringName = "Data not available";
+        } else {
+            stringName = this.getName();
         }
 
-        String returnString =
-                System.lineSeparator() +
-                        "ID:  " + this.getId() + System.lineSeparator() +
-                        "Name: " + this.getName() + System.lineSeparator() +
-                        "Employer: " + this.getEmployer() + System.lineSeparator() +
-                        "Location: " + this.getLocation() + System.lineSeparator() +
-                        "Position Type: " + this.getPositionType() + System.lineSeparator() +
-                        "Core Competency: " + this.getCoreCompetency() + System.lineSeparator();
+        if (this.getEmployer().getValue() == null) {
+            stringEmployer = "Data not available";
+        } else {
+            stringEmployer = this.getEmployer().getValue();
+        }
 
-           return returnString;
+        if (this.getLocation().getValue() == null) {
+            stringLocation = "Data not available";
+        } else {
+            stringLocation = this.getLocation().getValue();
+        }
+
+        if(this.getPositionType().getValue() == null) {
+            stringPosition = "Data not available";
+        } else {
+            stringPosition = this.getPositionType().getValue();
+        }
+
+        if (this.getCoreCompetency().getValue() == null) {
+            stringCore = "Data not available";
+        } else {
+            stringCore = this.getCoreCompetency().getValue();
+        }
+
+        return System.lineSeparator() +
+                "ID:  " + this.getId() + System.lineSeparator() +
+                "Name: " + stringName + System.lineSeparator() +
+                "Employer: " + stringEmployer + System.lineSeparator() +
+                "Location: " + stringLocation + System.lineSeparator() +
+                "Position Type: " + stringPosition + System.lineSeparator() +
+                "Core Competency: " + stringCore + System.lineSeparator();
     }
 
 

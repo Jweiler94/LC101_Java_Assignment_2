@@ -49,6 +49,7 @@ public class JobTest {
     @Test
         public void testToStringStartsAndEndsWithNewLine () {
         Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
         assertEquals(testJob.toString().startsWith(System.lineSeparator()), true);
         assertEquals(testJob.toString().endsWith(System.lineSeparator()), true);
     }
@@ -69,7 +70,7 @@ public class JobTest {
 
     @Test
         public void testToStringHandlesEmptyField () {
-        Job testJob = new Job("Product tester", new Employer(null), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String testCase =
                 System.lineSeparator() +
                         "ID:  " + testJob.getId() + System.lineSeparator() +
