@@ -47,11 +47,15 @@ public class Job {
 
         if (this.getEmployer().getValue() == null) {
             stringEmployer = "Data not available";
+        } else if (this.getEmployer().getValue().isEmpty()){
+            stringEmployer = "Data not available";
         } else {
             stringEmployer = this.getEmployer().getValue();
         }
 
         if (this.getLocation().getValue() == null) {
+            stringLocation = "Data not available";
+        } else if (this.getLocation().getValue().isEmpty()){
             stringLocation = "Data not available";
         } else {
             stringLocation = this.getLocation().getValue();
@@ -59,24 +63,33 @@ public class Job {
 
         if(this.getPositionType().getValue() == null) {
             stringPosition = "Data not available";
+        } else if (this.getPositionType().getValue().isEmpty()){
+            stringPosition = "Data not available";
         } else {
             stringPosition = this.getPositionType().getValue();
         }
 
         if (this.getCoreCompetency().getValue() == null) {
             stringCore = "Data not available";
+        } else if (this.getCoreCompetency().getValue().isEmpty()){
+            stringCore = "Data not available";
         } else {
             stringCore = this.getCoreCompetency().getValue();
         }
 
-        return System.lineSeparator() +
+
+        String toStringReturn = String.format(System.lineSeparator() +
                 "ID: " + this.getId() + System.lineSeparator() +
                 "Name: " + stringName + System.lineSeparator() +
                 "Employer: " + stringEmployer + System.lineSeparator() +
                 "Location: " + stringLocation + System.lineSeparator() +
                 "Position Type: " + stringPosition + System.lineSeparator() +
-                "Core Competency: " + stringCore + System.lineSeparator();
+                "Core Competency: " + stringCore + System.lineSeparator());
+
+        return toStringReturn;
     }
+
+
 
 
     @Override
@@ -84,12 +97,12 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        return id == ((Job) o).getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
